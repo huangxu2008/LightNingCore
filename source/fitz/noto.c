@@ -125,7 +125,7 @@ extern const unsigned int _binary_##NAME##_size;
 #define ALIAS(FORGE,NAME,NAME2,SCRIPT,LANG,SUBFONT,ATTR)
 #define EMPTY(SCRIPT)
 
-#include "font-table.h"
+// #include "font-table.h"
 
 #undef FONT
 #undef ALIAS
@@ -146,7 +146,7 @@ extern const unsigned int _binary_##NAME##_size;
 #define ALIAS(FORGE,NAME,NAME2,SCRIPT,LANG,SUBFONT,ATTR) { FONT_DATA(FORGE, NAME), FONT_SIZE(FORGE, NAME), NAME2, SCRIPT, LANG, SUBFONT, ATTR },
 static font_entry inbuilt_fonts[] =
 {
-#include "font-table.h"
+// #include "font-table.h"
 	{ NULL,
 #ifdef HAVE_OBJCOPY
 	NULL, NULL,

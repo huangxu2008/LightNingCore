@@ -246,10 +246,12 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(Configuration)\</OutDir>
     <IntDir>$(Configuration)\$(ProjectName)\</IntDir>
+    <IncludePath>..\..\thirdparty\cJSON;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(Configuration)\</OutDir>
     <IntDir>$(Configuration)\$(ProjectName)\</IntDir>
+    <IncludePath>..\..\thirdparty\cJSON;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugExtra|x64'">
     <OutDir>$(Platform)\$(Configuration)\</OutDir>
@@ -352,6 +354,7 @@
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <LanguageStandard>Default</LanguageStandard>
     </ClCompile>
     <Lib>
       <OutputFile>$(OutDir)$(ProjectName).lib</OutputFile>
@@ -630,8 +633,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\source\tools\cmapdump.c" />
+    <ClCompile Include="..\..\source\tools\convert.c" />
     <ClCompile Include="..\..\source\tools\muconvert.c" />
-    <ClCompile Include="..\..\source\tools\mudraw.c" />
     <ClCompile Include="..\..\source\tools\murun.c" />
     <ClCompile Include="..\..\source\tools\mutrace.c" />
     <ClCompile Include="..\..\source\tools\pdfbake.c" />
@@ -647,20 +650,17 @@
     <ClCompile Include="..\..\source\tools\pdfshow.c" />
     <ClCompile Include="..\..\source\tools\pdfsign.c" />
     <ClCompile Include="..\..\source\tools\pdftrim.c" />
+    <ClCompile Include="..\..\thirdparty\cJSON\cJSON.c" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="libmupdf.vcxproj">
       <Project>{5f615f91-dff8-4f05-bf48-6222b7d86519}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
-    <ProjectReference Include="libmuthreads.vcxproj">
-      <Project>{de21fa8a-fc8a-47e0-87e4-dce8808bfc9b}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
-    <ProjectReference Include="sodochandler.vcxproj">
-      <Project>{56391FFF-C9BA-4F40-AE2B-EF93702871B2}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\source\tools\toolhelper.h" />
+    <ClInclude Include="..\..\thirdparty\cJSON\cJSON.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
